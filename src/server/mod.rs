@@ -32,6 +32,7 @@ fn handle_pub(values: Vec<String>, mut data: VecDeque<String>) -> VecDeque<Strin
 }
 
 
+// TODO: Rewrite handle_get to not consume the stream.
 fn handle_get(number: u32, mut stream: TcpStream, mut data: VecDeque<String>) -> VecDeque<String> {
     (0..(min(number, data.len() as u32)))
         .fold(Vec::new(), |mut output_values, _| {
