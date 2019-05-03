@@ -126,5 +126,7 @@ fn test_handle_error() {
 
 #[test]
 fn test_serve() {
-    // TODO
+    // TODO: Not a comprehensive test, extend.
+
+    assert_eq!(serve("nonsense", 0).is_err(), true);
 }
