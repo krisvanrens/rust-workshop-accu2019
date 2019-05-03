@@ -78,7 +78,7 @@ pub fn serve(ip: &str, port: u16) -> io::Result<()> {
 
 #[test]
 fn test_handle_client() {
-    // TODO
+    // TODO: Create a faulty TcpStream and feed into handle_client. The result should match to 'None'.
 }
 
 
