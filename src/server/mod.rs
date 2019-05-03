@@ -1,10 +1,10 @@
 mod parser;
 
-use std::io;
-use std::io::{Read, Write};
-use std::net::{TcpListener, TcpStream};
-use std::collections::VecDeque;
 use std::cmp::min;
+use std::collections::VecDeque;
+use std::io::{Read, Write};
+use std::io;
+use std::net::{TcpListener, TcpStream};
 
 use parser::{Command, ParseError, parse_error_to_string, parse};
 
