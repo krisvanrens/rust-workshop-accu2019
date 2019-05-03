@@ -84,7 +84,13 @@ fn test_handle_client() {
 
 #[test]
 fn test_handle_pub() {
-    // TODO
+    let mut data : VecDeque<String> = VecDeque::new();
+
+    data = handle_pub(vec![], data);
+    assert!(data.is_empty());
+
+    data = handle_pub(vec!["one".to_string(), "two".to_string()], data);
+    assert_eq!(data, ["one", "two"]);
 }
 
 
