@@ -115,7 +115,11 @@ fn test_handle_get() {
 
 #[test]
 fn test_handle_error() {
-    // TODO
+    let socket_address = "127.0.0.1:12345";
+    let _listener = TcpListener::bind(socket_address);
+    let stream = TcpStream::connect(socket_address).unwrap();
+
+    handle_error(ParseError::InvalidCommand, stream);
 }
 
 
