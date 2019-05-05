@@ -22,5 +22,5 @@ end-to-end-tests:
   stage: test
   script:
     - apt-get update
-    - apt-get install -y netcat
+    - apt-get install -y netcat-openbsd
     - ./test_server.sh
