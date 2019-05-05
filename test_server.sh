@@ -84,6 +84,10 @@ function runTest
   testCommand "PUB 1 2"
   testCommand "GET 5"    "1 2 "
 
+  local series=$(seq -s' ' 10)
+  testCommand "PUB ${series}"
+  testCommand "GET 10"        "${series} "
+
   set +x
 }
 
