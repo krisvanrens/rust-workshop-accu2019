@@ -54,10 +54,10 @@ function runTest
   testCommand "PuB one"  "Error: Invalid command"
   testCommand "gEt 1"    "Error: Invalid command"
 
-  testCommand "PUB"      "Error: No arguments given"
-  testCommand "GET"      "Error: No arguments given"
-  testCommand "PUB "     "Error: No arguments given"
-  testCommand "PUB   "   "Error: No arguments given"
+  testCommand "PUB"      "Error: No arguments provided"
+  testCommand "GET"      "Error: No arguments provided"
+  testCommand "PUB "     "Error: No arguments provided"
+  testCommand "PUB   "   "Error: No arguments provided"
 
   testCommand "GET blah" "Error: Invalid argument"
   testCommand "GET -1"   "Error: Invalid argument"

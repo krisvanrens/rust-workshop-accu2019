@@ -17,8 +17,8 @@ pub enum ParseError {
 pub fn parse_error_to_string(error: ParseError) -> String {
     match error {
         ParseError::InvalidCommand   => "Invalid command",
-        ParseError::NoArguments      => "No arguments given",
-        ParseError::TooManyArguments => "Too many arguments given",
+        ParseError::NoArguments      => "No arguments provided",
+        ParseError::TooManyArguments => "Too many arguments provided",
         ParseError::InvalidArgument  => "Invalid argument"
     }.to_string()
 }
