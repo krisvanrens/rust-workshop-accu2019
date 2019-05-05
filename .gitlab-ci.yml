@@ -1,8 +1,12 @@
 image: "rust:latest"
 
-test:cargo:
+build:
   script:
   - rustc --version && cargo --version
+  - cargo build
+
+test:cargo:
+  script:
   - cargo test --all --verbose
 
 test:end-to-end:
