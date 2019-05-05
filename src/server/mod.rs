@@ -105,7 +105,6 @@ fn test_handle_get() {
     let mut data : VecDeque<String> = VecDeque::new();
     data.push_back("one".to_string());
     data.push_back("two".to_string());
-    assert_eq!(data.len(), 2);
 
     let stream = TcpStream::connect(socket_address).unwrap();
 
