@@ -4,3 +4,4 @@ test:cargo:
   script:
   - rustc --version && cargo --version
   - cargo test --all --verbose
+  - which nc
