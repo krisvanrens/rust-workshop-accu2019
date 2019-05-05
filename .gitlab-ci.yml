@@ -7,19 +7,20 @@ stages:
 build:
   stage: build
   script:
-  - rustc --version && cargo --version
-  - cargo build
+    - rustc --version && cargo --version
+    - cargo build
   artifacts:
-  - target/
+    paths:
+        - target/
 
 cargo-unit-tests:
   stage: test
   script:
-  - cargo test --all --verbose
+    - cargo test --all --verbose
 
 end-to-end-tests:
   stage: test
   script:
-  - apt-get update
-  - apt-get install -y netcat
-  - ./test_server.sh
+    - apt-get update
+    - apt-get install -y netcat
+    - ./test_server.sh
