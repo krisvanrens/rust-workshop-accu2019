@@ -4,3 +4,9 @@ test:cargo:
   script:
   - rustc --version && cargo --version
   - cargo test --all --verbose
+
+test:end-to-end:
+  script:
+  - apt-get update
+  - apt-get install -y netcat
+  - ./test_server.sh
