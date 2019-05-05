@@ -62,6 +62,8 @@ function runTest
   testCommand "GET blah" "Error: Invalid argument"
   testCommand "GET -1"   "Error: Invalid argument"
 
+  testCommand "GET 1 2"  "Error: Too many arguments provided"
+
   # Happy flow tests
   testCommand "GET 0"
   testCommand "GET 5"
