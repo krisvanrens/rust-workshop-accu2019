@@ -9,6 +9,8 @@ build:
   script:
   - rustc --version && cargo --version
   - cargo build
+  artifacts:
+  - target/
 
 cargo-unit-tests:
   stage: test
