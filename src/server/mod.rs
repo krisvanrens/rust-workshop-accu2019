@@ -101,12 +101,11 @@ fn test_handle_get() {
 
     let socket_address = "127.0.0.1:12345";
     let _listener = TcpListener::bind(socket_address);
+    let stream = TcpStream::connect(socket_address).unwrap();
 
     let mut data : VecDeque<String> = VecDeque::new();
     data.push_back("one".to_string());
     data.push_back("two".to_string());
-
-    let stream = TcpStream::connect(socket_address).unwrap();
 
     data = handle_get(2, stream, data);
     assert_eq!(data.len(), 0);
