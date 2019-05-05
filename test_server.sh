@@ -3,6 +3,8 @@
 test_executable_basepath="target/debug/"
 test_executable="fifo_server"
 
+server_port=8080
+
 
 function logInfo()
 {
@@ -18,15 +20,69 @@ function logError()
 
 function destructor()
 {
-  pkill -10 ${test_executable} || true
-  sleep .1
-  pkill -9 ${test_executable} || true
+  if pkill -0 ${test_executable}
+  then
+    pkill -10 ${test_executable} || true
+    sleep .1
+    pkill -9 ${test_executable} || true
+  fi
+}
+
+
+function testCommand()
+{
+  local command=$1
+  local expected_result=$2
+
+  local send_cmd="nc -N localhost ${server_port}"
+
+  echo -e "${command}" | ${send_cmd} | diff - <(echo -ne "${expected_result}")
 }
 
 
 function runTest
 {
-  logInfo "// TODO: Tests.."
+  logInfo "Running tests.."
+
+  set -x
+
+  # Error case tests
+  testCommand "blah"     "Error: Invalid command"
+  testCommand "BLAH"     "Error: Invalid command"
+  testCommand "PuB"      "Error: Invalid command"
+  testCommand "gEt"      "Error: Invalid command"
+  testCommand "PuB one"  "Error: Invalid command"
+  testCommand "gEt 1"    "Error: Invalid command"
+
+  testCommand "PUB"      "Error: No arguments given"
+  testCommand "GET"      "Error: No arguments given"
+  testCommand "PUB "     "Error: No arguments given"
+  testCommand "PUB   "   "Error: No arguments given"
+
+  testCommand "GET blah" "Error: Invalid argument"
+  testCommand "GET -1"   "Error: Invalid argument"
+
+  # Happy flow tests
+  testCommand "GET 0"
+  testCommand "GET 5"
+
+  testCommand "PUB one"
+  testCommand "GET 1"    "one "
+
+  testCommand "PUB 1"
+  testCommand "GET 1"    "1 "
+
+  testCommand "PUB 1 2"
+  testCommand "GET 1"    "1 "
+  testCommand "GET 1"    "2 "
+
+  testCommand "PUB 1 2"
+  testCommand "GET 2"    "1 2 "
+
+  testCommand "PUB 1 2"
+  testCommand "GET 5"    "1 2 "
+
+  set +x
 }
 
 
