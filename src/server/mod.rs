@@ -128,4 +128,5 @@ fn test_serve() {
 
     assert_eq!(serve("nonsense", 12345).is_err(), true);
     assert_eq!(serve("127.0.0.1", 1023).is_err(), true);  // Everything below 1024 cannot be binded without root rights.
+    assert_eq!(serve("nonsense",  1023).is_err(), true);
 }
