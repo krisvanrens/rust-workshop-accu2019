@@ -31,7 +31,7 @@ The parser translates the client commands to strong-typed values which the serve
 
 * On a `PUB` command, the server will place all provided arguments in the back of a string-queue,
 * On a `GET` command, the server will echo back the provided argument number of items from the front of the queue. The items will be removed from the queue,
-* On an empty, invalid or ill-formed command, the server will report the error back to the client.
+* On an empty, invalid or ill-formed command, the server will report the error back to the client, i.e. a string starting with `ERROR:`.
 
 
 # TODO
