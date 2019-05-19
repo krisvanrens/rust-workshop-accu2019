@@ -127,6 +127,11 @@ fn test_serve() {
     // TODO: Not a comprehensive test, extend.
 
     assert_eq!(serve("nonsense", 12345).is_err(), true);
-    assert_eq!(serve("127.0.0.1", 1023).is_err(), true);  // Everything below 1024 cannot be binded without root rights.
-    assert_eq!(serve("nonsense",  1023).is_err(), true);
+
+    // Occupy port 12345 so the server can't.
+    let socket_address = "127.0.0.1:12345";
+    let _listener = TcpListener::bind(socket_address);
+
+    assert_eq!(serve("127.0.0.1", 12345).is_err(), true);
+    assert_eq!(serve("nonsense",  12345).is_err(), true);
 }
