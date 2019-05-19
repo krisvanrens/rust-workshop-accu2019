@@ -40,4 +40,4 @@ The parser translates the client commands to strong-typed values which the serve
 * Fix handling of line breaks: `\n`, `\r` and `\r\n`.
 * Use command-line arguments to select binding port.
 * Make `server::handle_get` return the stream as well, to allow for more uniform implementation.
-* Build handle_client around the `std::io::Read` trait, to be able to test and implement separately from the I/O handling.
+* Build `server::handle_client` around the `std::io::Read` trait, to be able to test and implement separately from the I/O handling.
