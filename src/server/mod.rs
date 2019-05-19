@@ -4,7 +4,7 @@ use std::cmp::min;
 use std::collections::VecDeque;
 use std::io::{Read, Write};
 use std::io;
-use std::net::{TcpListener, TcpStream};
+use std::net::{TcpListener, TcpStream, Shutdown};
 
 use parser::{Command, ParseError, parse_error_to_string, parse};
 
@@ -79,7 +79,13 @@ pub fn serve(ip: &str, port: u16) -> io::Result<()> {
 
 #[test]
 fn test_handle_client() {
-    // TODO: Create a faulty TcpStream and feed into handle_client. The result should match to 'None'.
+    // Create a TcpStream and shut it down for to make it invalid for handle_client.
+    let socket_address = "127.0.0.1:12345";
+    let _listener = TcpListener::bind(socket_address);
+    let stream = TcpStream::connect(socket_address).unwrap();
+    assert_eq!(stream.shutdown(Shutdown::Both).is_ok(), true);
+
+    assert_eq!(handle_client(stream).is_none(), true);
 }
 
 
