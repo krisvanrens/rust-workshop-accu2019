@@ -128,7 +128,7 @@ fn test_serve() {
 
     assert_eq!(serve("nonsense", 12345).is_err(), true);
 
-    // Occupy port 12345 so the server can't.
+    // Occupy port 12345 so the test server can't.
     let socket_address = "127.0.0.1:12345";
     let _listener = TcpListener::bind(socket_address);
 
