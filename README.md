@@ -34,9 +34,9 @@ The parser translates the client commands to strong-typed values which the serve
 * On an empty, invalid or ill-formed command, the server will report the error back to the client, i.e. a string starting with `ERROR:`.
 
 
-# TODO
+# // TODO
 
-* Get rid of the trailing spaces in GET command results.
+* Get rid of the trailing spaces in `GET` command results.
 * Fix handling of line breaks: `\n`, `\r` and `\r\n`.
 * Use command-line arguments to select binding port.
 * Make `server::handle_get` return the stream as well, to allow for more uniform implementation.
