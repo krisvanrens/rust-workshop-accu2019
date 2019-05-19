@@ -4,7 +4,10 @@ use std::cmp::min;
 use std::collections::VecDeque;
 use std::io::{Read, Write};
 use std::io;
-use std::net::{TcpListener, TcpStream, Shutdown};
+use std::net::{TcpListener, TcpStream};
+
+#[cfg(test)]
+use std::net::{Shutdown};
 
 use parser::{Command, ParseError, parse_error_to_string, parse};
 
