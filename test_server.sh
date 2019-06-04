@@ -69,24 +69,24 @@ function runTest
   testCommand "GET 5"
 
   testCommand "PUB one"
-  testCommand "GET 1"    "one "
+  testCommand "GET 1"    "one"
 
   testCommand "PUB 1"
-  testCommand "GET 1"    "1 "
+  testCommand "GET 1"    "1"
 
   testCommand "PUB 1 2"
-  testCommand "GET 1"    "1 "
-  testCommand "GET 1"    "2 "
+  testCommand "GET 1"    "1"
+  testCommand "GET 1"    "2"
 
   testCommand "PUB 1 2"
-  testCommand "GET 2"    "1 2 "
+  testCommand "GET 2"    "1 2"
 
   testCommand "PUB 1 2"
-  testCommand "GET 5"    "1 2 "
+  testCommand "GET 5"    "1 2"
 
   local series=$(seq -s' ' 10)
   testCommand "PUB ${series}"
-  testCommand "GET 10"        "${series} "
+  testCommand "GET 10"        "${series}"
 
   set +x
 }

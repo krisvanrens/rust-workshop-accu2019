@@ -36,7 +36,6 @@ The parser translates the client commands to strong-typed values which the serve
 
 # // TODO
 
-* Get rid of the trailing spaces in `GET` command results.
 * Fix handling of line breaks: `\n`, `\r` and `\r\n`.
 * Use command-line arguments to select binding port.
 * Make `server::handle_get` return the stream as well, to allow for more uniform implementation.
