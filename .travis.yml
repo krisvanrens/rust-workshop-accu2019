@@ -2,10 +2,16 @@ language: rust
 
 rust:
   - stable
-  
-script:
-  - cargo build --verbose
-  - cargo test --verbose
 
 os:
   - linux
+
+addons:
+  apt:
+    packages:
+      - netcat-openbsd
+
+script:
+  - cargo build --verbose
+  - cargo test --verbose
+  - ./test_server.sh
