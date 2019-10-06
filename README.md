@@ -1,4 +1,4 @@
-https://travis-ci.com/krisvanrens/rust-workshop-accu2019.svg?branch=master
+[![Build Status](https://travis-ci.com/krisvanrens/rust-workshop-accu2019.svg?branch=master)](https://travis-ci.com/krisvanrens/rust-workshop-accu2019)
 
 # ACCU 2019 Rust workshop
 
