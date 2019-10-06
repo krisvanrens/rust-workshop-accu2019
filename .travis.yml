@@ -6,10 +6,14 @@ rust:
 os:
   - linux
 
+dist:
+  - bionic
+
 addons:
   apt:
+    update: true
     packages:
-      - netcat-traditional
+      - netcat-openbsd
 
 script:
   - cargo build --verbose
