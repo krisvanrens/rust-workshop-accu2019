@@ -1,3 +1,5 @@
+https://travis-ci.com/krisvanrens/rust-workshop-accu2019.svg?branch=master
+
 # ACCU 2019 Rust workshop
 
 ACCU 2019 Rust workshop excercise.
