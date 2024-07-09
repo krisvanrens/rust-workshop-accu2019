@@ -5,7 +5,7 @@
 ACCU 2019 Rust workshop excercise.
 
 
-# Assigment description
+# Assignment description
 
 The assigment was two-fold; first a parser for simple commands had to be created, which would then be used in the second exercise to create a server application that uses the parser.
 
